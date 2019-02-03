@@ -1,0 +1,26 @@
+{
+  "name": "cleverweb-cz/text-3d-captcha",
+  "description": "Simple axonometric 3D text CAPTCHA",
+  "type": "library",
+  "keywords": [
+	"captcha",
+	"3d"
+  ],
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+	{
+	  "name": "Martin Hozík",
+	  "email": "martin.hozik@cleverweb.cz"
+	}
+  ],
+  "require": {
+	"php": "^7.1",
+	"ext-gd": "*"
+  },
+  "autoload": {
+	"psr-4": {
+	  "CleverWeb\\Text3dCaptcha\\": "src/"
+	}
+  }
+}
