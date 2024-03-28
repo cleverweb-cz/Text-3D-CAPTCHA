@@ -12,22 +12,7 @@ use CleverWeb\Text3dCaptcha\Map\IMap;
  */
 class Axonometry implements IProjection {
 
-	/**
-	 * @var IMap
-	 */
-	private $map;
-	/**
-	 * @var float
-	 */
-	public $scale;
-	/**
-	 * @var float
-	 */
-	public $angle;
-	/**
-	 * @var array;
-	 */
-	private $draw;
+	private array $draw;
 
 	/**
 	 * Axonometry constructor.
@@ -35,10 +20,11 @@ class Axonometry implements IProjection {
 	 * @param float $scale scale
 	 * @param float $angle axonometric projection angle (rad)
 	 */
-	public function __construct(IMap $map, float $scale = 5., float $angle = 1.2) {
-		$this->map = $map;
-		$this->scale = $scale;
-		$this->angle = $angle;
+	public function __construct(
+		private IMap $map,
+		public float $scale = 5.,
+		public float $angle = 1.2
+	) {
 	}
 
 	/**

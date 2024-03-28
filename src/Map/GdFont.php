@@ -11,27 +11,6 @@ namespace CleverWeb\Text3dCaptcha\Map;
 class GdFont implements IMap {
 
 	/**
-	 * @var string
-	 */
-	public $value;
-	/**
-	 * @var int
-	 */
-	public $noise;
-	/**
-	 * @var int
-	 */
-	public $font;
-	/**
-	 * @var float
-	 */
-	public $padding;
-	/**
-	 * @var float
-	 */
-	public $volume;
-
-	/**
 	 * GdFont Constructor
 	 * @param string $value Text value
 	 * @param float $noise intesity
@@ -39,12 +18,13 @@ class GdFont implements IMap {
 	 * @param float $volume Emboss volume
 	 * @param int $font identifier (see imageloadfont)
 	 */
-	public function __construct(string $value, float $noise = .1, float $padding = .1, float $volume = 1, int $font = 5) {
-		$this->value = $value;
-		$this->noise = $noise;
-		$this->font = $font;
-		$this->padding = $padding;
-		$this->volume = $volume;
+	public function __construct(
+		public string $value,
+		public float  $noise = .1,
+		public float  $padding = .1,
+		public float  $volume = 1,
+		public int    $font = 5
+	) {
 	}
 
 	/**
@@ -79,7 +59,7 @@ class GdFont implements IMap {
 	 * Add noise into bitmap
 	 * @param resource $r
 	 */
-	protected function noise($r) {
+	protected function noise($r): void {
 		if ($this->noise == 0)
 			return;
 

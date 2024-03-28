@@ -13,28 +13,16 @@ use CleverWeb\Text3dCaptcha\Projection\IProjection;
 class Png implements IFormat {
 
 	/**
-	 * @var IProjection
-	 */
-	private $projection;
-	/**
-	 * @var int
-	 */
-	public $fg;
-	/**
-	 * @var int
-	 */
-	public $bg;
-
-	/**
 	 * Png constructor.
 	 * @param IProjection $projection
 	 * @param int $fg foreground color
 	 * @param int $bg background color
 	 */
-	public function __construct(IProjection $projection, int $fg = 0, int $bg = 0xFFFFFF) {
-		$this->projection = $projection;
-		$this->fg = $fg;
-		$this->bg = $bg;
+	public function __construct(
+		private IProjection $projection,
+		public int          $fg = 0,
+		public int          $bg = 0xFFFFFF
+	) {
 	}
 
 	/**

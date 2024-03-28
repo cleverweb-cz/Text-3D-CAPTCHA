@@ -12,7 +12,7 @@
 
 ## Prerequisites
 
-- PHP 7.1+
+- PHP 8.0+
 - [GD library](http://php.net/manual/en/book.image.php)
 
 

@@ -13,22 +13,14 @@ use CleverWeb\Text3dCaptcha\Projection\IProjection;
 class Svg implements IFormat {
 
 	/**
-	 * @var IProjection
-	 */
-	private $projection;
-	/**
-	 * @var int
-	 */
-	public $fg;
-
-	/**
 	 * Svg constructor.
 	 * @param IProjection $projection
 	 * @param int $fg foreground color
 	 */
-	public function __construct(IProjection $projection, int $fg = 0) {
-		$this->projection = $projection;
-		$this->fg = $fg;
+	public function __construct(
+		private IProjection $projection,
+		public int          $fg = 0
+	) {
 	}
 
 	/**
@@ -52,7 +44,7 @@ class Svg implements IFormat {
 
 		$svg = <<<SVG
 <?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="{$width}px" height="{$height}px" x="0px" y="0px" viewBox="0 0 {$width} {$height}">
+<svg xmlns="http://www.w3.org/2000/svg" width="{$width}px" height="{$height}px" x="0px" y="0px" viewBox="0 0 {$width} {$height}">
 <path stroke="{$stroke}" d="{$shape}"/>
 </svg>
 SVG;
